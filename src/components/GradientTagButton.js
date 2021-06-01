@@ -1,4 +1,3 @@
-/* COMMENTAIRE useContext et FilterContext sont remplacés par useFilter*/
 import { useGradient } from "../context/GradientsContext"
 
 const GradientTagButton = ({ tag }) => {
