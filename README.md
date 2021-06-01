@@ -181,10 +181,6 @@ avec un message d'erreur.
 
 L'utilisateur aura toujours la possibilité de revenir à la liste des gradients (page Home), grâce au bouton "Tous".
 
-# Alyra Gradients Team White Project - Context API
-White Team: Nassim ,Sylvie, Victor et Grégory
-## Mise en place du Gradient Context
-```js
 Nous y avons, déclaré toutes nos variables de state, nos Callbacks et le fetch des données.
 Nous avons aussi rencontré quelques problèmes avec le scope du "FilterContextProvider" et avons donc décidé de le placer directement dans le GradientContext.
 
@@ -273,4 +269,4 @@ Puis dans le fichier GradientList,
 })}      
 ```
 
-![image](https://user-images.githubusercontent.com/53022990/120336533-bafdc700-c2f2-11eb-90ac-4b10cfa97078.png)
+![image](https://user-images.githubusercontent.com/53022990/120336838-087a3400-c2f3-11eb-9684-703ee4ed0338.png)
