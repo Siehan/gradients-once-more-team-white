@@ -1,6 +1,3 @@
-# Alyra Gradients - Context API
-# gradients-once-more-white-team
-
 # Projet Alyra Gradients Once More
 Netlify:
 Repo de départ : Gradient starter
@@ -184,8 +181,6 @@ avec un message d'erreur.
 
 L'utilisateur aura toujours la possibilité de revenir à la liste des gradients (page Home), grâce au bouton "Tous".
 
-# Alyra Gradients Team White Project - Context API
-White Team: Nassim ,Sylvie, Victor et Grégory
 ## Mise en place du Gradient Context
 ```js
 Nous y avons, déclarer toute nos variables de state, nos Callbacks et le fetch des données.
