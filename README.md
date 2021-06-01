@@ -1,7 +1,8 @@
 # Projet Alyra Gradient Once More
-  Netlify: https://gradients-once-more-team-white.netlify.app/ .
+
+  Netlify: https://gradients-once-more-team-white.netlify.app/
   Repo de départ : Gradient starter.
-  Equipe Blanche: Sylvie, Victor, Grégory, Nassim.
+  Equipe Blanche: Sylvie, Victor, Grégory, Nassim
 
 ## Enoncé
 
@@ -15,6 +16,7 @@
 ## GradientReducer
 
 On set la constante GradientReducer grace un switch de 3 actions distincte "FETCH_INIT", "FETCH_SUCCESS", "FETCH_FAILURE".
+
 On utilise ensuite cette constante et les 3 actions qui lui sont attribuées pour le fetch et ces différents états dans le GradientContext.
 
 ```js
