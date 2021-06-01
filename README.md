@@ -1,18 +1,19 @@
 # Projet Alyra Gradient Once More
 
-  Netlify: https://gradients-once-more-team-white.netlify.app/
-  Repo de départ : Gradient starter.
-  Equipe Blanche: Sylvie, Victor, Grégory, Nassim
+- Netlify: https://gradients-once-more-team-white.netlify.app/
+- Repo de départ : Gradient starter.
+- Equipe Blanche: Sylvie, Victor, Grégory, Nassim
 
 ## Enoncé
 
  Dans ce projet, nous avons ciblé différents objectifs :
-  - useReducer avec des actions FETCH_INIT, FETCH_SUCCESS, FETCH_FAILURE
-  - Les gradients sont récupérés via une API https://gradients-api.herokuapp.com
-  - GradientsContext pour appeler les données,
-  - La structure des routes,
-  - La navigation (Home, Previous, Next) depuis routes /gradient/:id
-  
+
+- useReducer avec des actions FETCH_INIT, FETCH_SUCCESS, FETCH_FAILURE
+- Les gradients sont récupérés via une API https://gradients-api.herokuapp.com
+- GradientsContext pour appeler les données,
+- La structure des routes,
+- La navigation (Home, Previous, Next) depuis routes /gradient/:id
+
 ## GradientReducer
 
 On set la constante GradientReducer grace un switch de 3 actions distincte "FETCH_INIT", "FETCH_SUCCESS", "FETCH_FAILURE".
@@ -207,6 +208,7 @@ Nous avons aussi rencontré quelques problèmes avec le scope du "FilterContextP
 
 Exemple :
 
+```js
 <GradientContext.Provider
 value={{
 gradients,
@@ -293,5 +295,3 @@ Puis dans le fichier GradientList :
 )
 })}
 ```
-
-![image](https://user-images.githubusercontent.com/53022990/120336838-087a3400-c2f3-11eb-9684-703ee4ed0338.png)
