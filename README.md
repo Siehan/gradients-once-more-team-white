@@ -1,3 +1,189 @@
+# Alyra Gradients - Context API
+# gradients-once-more-white-team
+
+# Projet Alyra Gradients Once More
+Netlify:
+Repo de départ : Gradient starter
+Équipe Blanche: Sylvie, Victor, Grégory, Nassim
+
+## Enoncé :
+
+ Dans ce projet, nous avons ciblé différents objectifs :
+  - useReducer avec des actions FETCH_INIT FETCH_SUCCESS, FETCH_FAILURE,
+  - Les gradients sont récupérés via une API https://gradients-api.herokuapp.com
+  - GradientsContext pour appeler les données,
+  - La structure des routes, 
+  - La navigation (Accueil, Précédent, Suivant) depuis routes /gradient/:id 
+
+## GradientReducer : 
+
+On met en place la constante GradientReducer grâce un switch de 3 actions distinctes "FETCH_INIT", "FETCH_SUCCESS", "FETCH_FAILURE".
+On utilise ensuite cette constante et les 3 actions qui lui sont attribuées pour le fetch et ces différents états dans le GradientContext.
+
+    const gradientReducer = (state, action) => {
+  switch (action.type) {
+    case "FETCH_INIT":
+      return {
+        ...state,
+        loading: true,
+      }
+    case "FETCH_SUCCESS":
+      return {
+        ...state,
+        loading: false,
+        error: "",
+        gradients: action.payload,
+      }
+    case "FETCH_FAILURE":
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      }
+    default:
+      throw new Error (
+        `Unsupported action type ${action.type} in gradientReducer`
+      )
+  }
+}
+
+ ## GradientContext : 
+
+  Dans ce fichier nous avons commencé par créer le context et le Component Provider (GradientContext). 
+    import {createContext, useReducer, useEffect } from "react";
+
+    export const GradientContext = createContext();
+
+    export const GradientContextProvider = ({ children }) => {
+
+    return (
+    <GradientContext.Provider value={{ state, dispatch }}>
+      {!state.loaded ? <p>Loading...</p> : children}
+    </GradientContext.Provider>
+    );
+    };
+  
+  
+  Ensuite nous avons ajouté au GradientContextProvider un useReducer, un useState, ainsi que le hook useIsMounted :
+    const [state, dispatch] = useReducer(gradientReducer, {
+    gradients: [],
+    loading: true,
+    error: "",
+  })
+  const [filter, setFilter] = useState("all")
+  const { gradients, loading, error } = state
+  const [card, setCard] = useState(gradients)
+  const isMounted = useIsMounted()
+
+Ensuite nous avons mis en place un useEffect, et utilisé le custom hook "isMounted" :
+
+    useEffect(() => {
+    fetch(url)
+      .then((response) => {
+        dispatch({ type: "FETCH_INIT" })
+        if (!response.ok) {
+          throw new Error(
+            `Something went wrong with your fetch": ${response.status}`
+          )
+        }
+        return response.json()
+      })
+      .then((data) => {
+        if (isMounted.current) {
+          dispatch({ type: "FETCH_SUCCESS", payload: data })
+        }
+      })
+      .catch((error) => {
+        if (isMounted.current) {
+          dispatch({ type: "FETCH_FAILURE", payload: error.message })
+        }
+      })
+  }, [url, isMounted])
+
+## Mise en Place des Routes
+Tout d'abord, nous avons installé les dépendances react router dom 
+
+yarn add react-router-dom
+
+Ensuite on les importe dans le fichier index.js : 
+    import { BrowserRouter as Router } from 'react-router-dom'
+
+Puis on met en place les différents routes : 
+    
+
+    ReactDOM.render(
+        <React.StrictMode>
+            <GradientContextProvider>
+                <Router>
+                    <Switch>
+                        <Route exact path="/gradient/:id" component={GradientPage} />
+                        <Route exact path="/" component={App} />
+                        <App />
+                    </Switch>
+                </Router>
+            </GradientContextProvider>
+        </React.StrictMode>,
+        document.getElementById("root")
+    )
+
+## FullGradient
+
+ 
+### FULL Page
+
+En cliquant sur le bouton "Plein Ecran", l'utilisateur sera redirigé vers une page affichant la couleur sélectionnée. 
+
+Cette page comporte différentes fonctionnalités. Tout d'abord, il récupère l'identifiant "id" afin de récupérer le bon gradient à afficher. 
+
+    const { gradients } = useGradient()
+  const { id } = useParams()
+
+Nous avons également trois boutons : 
+- "Tous" => qui redirige l'utilisateur vers la liste des gradients.
+                
+- "précèdent" => qui permet d'afficher la couleur précédente. L'identification se fait grâce à l'id. 
+
+- "Suivant" => qui permet d'afficher la couleur suivante. L'identification se fait grâce à l'id. 
+
+Ces 3 boutons, sont englobé dans une balise Link :
+
+     <NavLink
+    to={`/gradient/${Number(id) - 1}`}
+    type="button"
+    className="btn btn-dark text-white nav-link me-2"
+    >
+      Previous
+   </NavLink>
+
+### GradientText
+
+En plus de ces boutons, l'utilisateur à accès au nom du gradients affichée, ainsi qu'au code linear. 
+
+    <h1 className="text-white display-1">{gradients[id - 1]?.name}</h1>
+        <div className="bg-white shadow p-2 rounded">{`background-image: linear-gradient(to right, ${
+            gradients[id - 1]?.start
+        }, ${gradients[id - 1]?.end})`}</div>
+
+### GradientPageError. 
+
+Les gradients sont identifiés grâce à l'id. Dans la gradient list, récupérée par l'api, nous avons 25 gradients soit 25 id.
+
+Dans le navigateur, l'utilisateur peut modifier, sur l'url, le numéro de l'id afin d'afficher une autre couleur. 
+Seulement, si l'utilisateur, indique un id non listé (ex: 50), alors une page, sous fond noir, s'affichera, 
+
+    style={{
+                backgroundColor: "black",
+            }}
+
+avec un message d'erreur. 
+
+    <p className="text-white m-auto text-center">
+          Oops, this gradient does not exist
+
+        </p>
+
+L'utilisateur aura toujours la possibilité de revenir à la liste des gradients (page Home), grâce au bouton "Tous".
+
 # Alyra Gradients Team White Project - Context API
 White Team: Nassim ,Sylvie, Victor et Grégory
 ## Mise en place du Gradient Context
@@ -91,3 +277,4 @@ Puis dans le fichier GradientList,
 })}      
 ```
 
+![image](https://user-images.githubusercontent.com/53022990/120334813-40807780-c2f1-11eb-8edf-826187334c23.png)
