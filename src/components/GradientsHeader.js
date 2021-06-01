@@ -16,7 +16,7 @@ const GradientsHeader = ({
 		>
 			{children}
 			<button
-				aria-label="Clicker pour afficher le dégradé précédant"
+				aria-label="Clickez pour afficher le dégradé précédent"
 				type="button"
 				className="btn btn-outline-light m-1"
 				onClick={handlePrevClick}
@@ -24,7 +24,7 @@ const GradientsHeader = ({
 				<Prev />
 			</button>
 			<button
-				aria-label="Clicker pour changer le dégradé"
+				aria-label="Clickez pour changer le dégradé"
 				type="button"
 				className="btn btn-outline-light m-1"
 				onClick={handleReloadClick}
@@ -32,7 +32,7 @@ const GradientsHeader = ({
 				<SvgToggle />
 			</button>
 			<button
-				aria-label="Clicker pour afficher le dégradé suivant"
+				aria-label="Clickez pour afficher le dégradé suivant"
 				type="button"
 				className="btn btn-outline-light m-1"
 				onClick={handleNextClick}
