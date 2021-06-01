@@ -152,7 +152,7 @@ Ces 3 boutons, sont englobé dans une balise Link :
       Previous
    </NavLink>
 
-### GradientText :
+### GradientText
 
 En plus de ces boutons, l'utilisateur à accès au nom du gradients affichée, ainsi qu'au code linear. 
 
@@ -161,7 +161,7 @@ En plus de ces boutons, l'utilisateur à accès au nom du gradients affichée, a
             gradients[id - 1]?.start
         }, ${gradients[id - 1]?.end})`}</div>
 
-### GradientPageError :
+### GradientPageError
 
 Les gradients sont identifiés grâce à l'id. Dans la gradient list, récupérée par l'api, nous avons 25 gradients soit 25 id.
 
