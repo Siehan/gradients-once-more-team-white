@@ -56,7 +56,7 @@ dispatch({ type: "FETCH_SUCCESS", payload: data })
 ## Les Bonus
 
 ```js
-Utilisations du custom hook "isMounted" :
+Utilisation du custom hook "isMounted" :
 Exemple : if (isMounted.current) {
 	dispatch({ type: "FETCH_SUCCESS", payload: data })
 	}
@@ -64,7 +64,7 @@ Exemple : if (isMounted.current) {
  Des fonctions Callback pour le loading et la récupération de données:
  Exemple: 	const initFetch = useCallback(() => dispatch({ type: "FETCH_INIT" }), [])
 
- Mise en places des pages(vu en cours):
+ Mise en place des pages(Ce que nous avons vu en cours):
  Exemple : dans le fichier "SwitchPage",
 
 <button
