@@ -16,6 +16,7 @@ Equipe Blanche: Sylvie, Victor, Grégory, Nassim.
 On set la constante GradientReducer grace un switch de 3 actions distincte "FETCH_INIT", "FETCH_SUCCESS", "FETCH_FAILURE".
 On utilise ensuite cette constante et les 3 actions qui lui sont attribuées pour le fetch et ces différents états dans le GradientContext.
 
+```js
     const gradientReducer = (state, action) => {
 	switch (action.type) {
 		case "FETCH_INIT":
@@ -42,10 +43,10 @@ On utilise ensuite cette constante et les 3 actions qui lui sont attribuées pou
 			)
 	}
 }
-
+```
 
   ## GradientContext :
-
+```js
   Dans ce fichier nous avons commencé par créer le context et le Component Provider (GradientContext).
 
     import { createContext, useReducer, useEffect } from "react";
@@ -58,8 +59,8 @@ On utilise ensuite cette constante et les 3 actions qui lui sont attribuées pou
     </GradientContext.Provider>
     );
     };
-
-
+```
+```js
   Ensuite nous avons ajouté au GradientContextProvider un useReducer, un useState, ainsi que le hook useIsMounted :
 
     const [state, dispatch] = useReducer(gradientReducer, {
@@ -71,9 +72,9 @@ On utilise ensuite cette constante et les 3 actions qui lui sont attribuées pou
 	const { gradients, loading, error } = state
 	const [card, setCard] = useState(gradients)
 	const isMounted = useIsMounted()
-
+```
+```js
 Puis, avons mis en place un useEffect, et utilisé le custom hook "isMounted" :
-
 
     useEffect(() => {
 		fetch(url)
@@ -97,10 +98,11 @@ Puis, avons mis en place un useEffect, et utilisé le custom hook "isMounted" :
 				}
 			})
 	}, [url, isMounted])
-
+```
 
 ## Mise en place des Routes
 
+```js
 Dans un premier temps, nous avons installé les dépendances react router dom
 
 yarn add react-router-dom
@@ -110,7 +112,6 @@ Ensuite nous les avons importées dans le fichier index.js :
     import { BrowserRouter as Router } from 'react-router-dom'
 
 Puis mis en place les différentes routes :
-
 
     ReactDOM.render(
         <React.StrictMode>
@@ -126,6 +127,7 @@ Puis mis en place les différentes routes :
         </React.StrictMode>,
         document.getElementById("root")
     )
+```
 
 ## FullGradient
 
@@ -135,8 +137,10 @@ En cliquant sur le bouton "Full screen", l'utilisateur sera redirigé vers une p
 
 Cette page comporte différentes fonctionnalités. Tout d'abord, elle récupère l'identifiant "id" afin d’identifier le bon gradient à afficher.
 
-    const { gradients } = useGradient()
-	const { id } = useParams()
+```js
+
+const { gradients } = useGradient()
+const { id } = useParams()
 
 Nous avons également trois boutons :
 
@@ -155,6 +159,7 @@ Ces 3 boutons, sont englobés dans une balise Link :
 		>
 			Previous
 	 </NavLink>
+```
 
 ### GradientText
 
