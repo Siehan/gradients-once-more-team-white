@@ -11,6 +11,7 @@ Repo de départ : Gradient starter
   - GradientsContext pour appeler les données,
   - La structure des routes, 
   - La navigation (Accueil, Précédent, Suivant) depuis routes /gradient/:id 
+  - Bonus
 
 ## GradientReducer : 
 
