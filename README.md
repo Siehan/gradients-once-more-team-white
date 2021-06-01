@@ -3,12 +3,11 @@ White Team: Nassim ,Sylvie, Victor et Grégory
 ## Mise en place du Gradient Context
 ```js
 Nous y avons, déclarer toute nos variables de state, nos Callbacks et le fetch des données.
-Nous y avons aussi rencontrer quelque problèmes avec le scope du "FilterContextProvider" et avons
+Nous avons aussi rencontrer quelque problèmes avec le scope du "FilterContextProvider" et avons
 donc décidé de le placer directement dans le GradientContext.
 
 Exemple : 
 
-	return (
 <GradientContext.Provider
 value={{
 gradients,
@@ -21,13 +20,10 @@ fetchGradient,
 active,
 setActive,
 page,
-setPage,
-			}}
-		>
-			{children}
-		</GradientContext.Provider>
-	)
-}
+setPage,}}
+>
+{children}
+</GradientContext.Provider>
 ```
 
 ## Fetch des données
@@ -78,9 +74,7 @@ Exemple : if (isMounted.current) {
 >
 				1
 </button>
-
 Puis dans le fichier GradientList,
-
 {page === 1 &&
 	list.slice(0, 4).map((el) => {
 	const { name, start, end, tags, id = [] } = el
