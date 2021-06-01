@@ -1,17 +1,18 @@
 # Projet Alyra Gradient Once More
-Netlify: https://gradients-once-more-team-white.netlify.app/ .
-Repo de départ : Gradient starter.
-Equipe Blanche: Sylvie, Victor, Grégory, Nassim.
+  Netlify: https://gradients-once-more-team-white.netlify.app/ .
+  Repo de départ : Gradient starter.
+  Equipe Blanche: Sylvie, Victor, Grégory, Nassim.
 
-## Enoncé :
+## Enoncé
+
  Dans ce projet, nous avons ciblé différents objectifs :
   - useReducer avec des actions FETCH_INIT, FETCH_SUCCESS, FETCH_FAILURE
   - Les gradients sont récupérés via une API https://gradients-api.herokuapp.com
   - GradientsContext pour appeler les données,
   - La structure des routes,
   - La navigation (Home, Previous, Next) depuis routes /gradient/:id
-  - 
-## GradientReducer :
+  
+## GradientReducer
 
 On set la constante GradientReducer grace un switch de 3 actions distincte "FETCH_INIT", "FETCH_SUCCESS", "FETCH_FAILURE".
 On utilise ensuite cette constante et les 3 actions qui lui sont attribuées pour le fetch et ces différents états dans le GradientContext.
@@ -180,6 +181,7 @@ return (
 	)
 }
 ```
+
 ### GradientPageError
 
 Les gradients sont chacun identifiés grâce à leur id. Par l’api, nous en avons récupéré une liste de 25, soit 25 id.
