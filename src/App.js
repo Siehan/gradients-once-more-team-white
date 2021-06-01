@@ -49,7 +49,7 @@ function App() {
           <Gradients />
           {active && <SwitchPage />}
           {!active && (
-            <button className="btn btn-dark" onClick={() => setActive(true)}>
+            <button aria-label="Click to show the gradients" className="btn btn-dark" onClick={() => setActive(true)}>
               Show the gradients
             </button>
           )}
