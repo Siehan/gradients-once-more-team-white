@@ -9,10 +9,10 @@ Repo de départ : Gradient starter
   - useReducer avec des actions FETCH_INIT FETCH_SUCCESS, FETCH_FAILURE,
   - Les gradients sont récupérés via une API https://gradients-api.herokuapp.com
   - GradientsContext pour appeler les données,
-  - La structure des routes, 
-  - La navigation (Accueil, Précédent, Suivant) depuis routes /gradient/:id 
+  - La structure des routes,
+  - La navigation (Accueil, Précédent, Suivant) depuis routes /gradient/:id
 
-## GradientReducer : 
+## GradientReducer :
 
 On met en place la constante GradientReducer grâce un switch de 3 actions distinctes "FETCH_INIT", "FETCH_SUCCESS", "FETCH_FAILURE".
 On utilise ensuite cette constante et les 3 actions qui lui sont attribuées pour le fetch et ces différents états dans le GradientContext.
@@ -44,7 +44,7 @@ On utilise ensuite cette constante et les 3 actions qui lui sont attribuées pou
   }
 }
 
- ## GradientContext : 
+## GradientContext :
 
   Dans ce fichier nous avons commencé par créer le context et le Component Provider (GradientContext). 
     import {createContext, useReducer, useEffect } from "react";
@@ -59,8 +59,7 @@ On utilise ensuite cette constante et les 3 actions qui lui sont attribuées pou
     </GradientContext.Provider>
     );
     };
-  
-  
+
   Ensuite nous avons ajouté au GradientContextProvider un useReducer, un useState, ainsi que le hook useIsMounted :
     const [state, dispatch] = useReducer(gradientReducer, {
     gradients: [],
@@ -98,15 +97,15 @@ Ensuite nous avons mis en place un useEffect, et utilisé le custom hook "isMoun
   }, [url, isMounted])
 
 ## Mise en Place des Routes :
-Tout d'abord, nous avons installé les dépendances react router dom 
+
+Tout d'abord, nous avons installé les dépendances react router dom
 
 yarn add react-router-dom
 
-Ensuite on les importe dans le fichier index.js : 
+Ensuite on les importe dans le fichier index.js :
     import { BrowserRouter as Router } from 'react-router-dom'
 
-Puis on met en place les différentes routes : 
-    
+Puis on met en place les différentes routes :
 
     ReactDOM.render(
         <React.StrictMode>
@@ -125,22 +124,22 @@ Puis on met en place les différentes routes :
 
 ## FullGradient :
 
- 
+
 ### Full Page
 
-En cliquant sur le bouton "Full Screen", l'utilisateur sera redirigé vers une page affichant la couleur sélectionnée. 
+En cliquant sur le bouton "Full Screen", l'utilisateur sera redirigé vers une page affichant la couleur sélectionnée.
 
-Cette page comporte différentes fonctionnalités. Tout d'abord, elle récupère l'identifiant "id" afin de d’afficher le bon gradient. 
+Cette page comporte différentes fonctionnalités. Tout d'abord, elle récupère l'identifiant "id" afin de d’afficher le bon gradient.
 
     const { gradients } = useGradient()
   const { id } = useParams()
 
-Nous avons également trois boutons : 
+Nous avons également trois boutons :
 - "Tous" => qui redirige l'utilisateur vers la liste des gradients.
-                
-- "Previous" => qui permet d'afficher la couleur précédente. L'identification se fait grâce à l'id. 
 
-- "Next" => qui permet d'afficher la couleur suivante. L'identification se fait grâce à l'id. 
+- "Previous" => qui permet d'afficher la couleur précédente. L'identification se fait grâce à l'id.
+
+- "Next" => qui permet d'afficher la couleur suivante. L'identification se fait grâce à l'id.
 
 Ces 3 boutons, sont englobé dans une balise Link :
 
@@ -165,8 +164,8 @@ En plus de ces boutons, l'utilisateur à accès au nom du gradients affichée, a
 
 Les gradients sont identifiés grâce à l'id. Dans la gradient list, récupérée par l'api, nous avons 25 gradients soit 25 id.
 
-Dans le navigateur, l'utilisateur peut modifier, sur l'url, le numéro de l'id afin d'afficher une autre couleur. 
-Seulement, si l'utilisateur, indique un id non listé (ex: 50), alors une page, sous fond noir, s'affichera, 
+Dans le navigateur, l'utilisateur peut modifier, sur l'url, le numéro de l'id afin d'afficher une autre couleur.
+Seulement, si l'utilisateur, indique un id non listé (ex: 50), alors une page, sous fond noir, s'affichera :
 
     style={{
                 backgroundColor: "black",
@@ -184,7 +183,7 @@ L'utilisateur aura toujours la possibilité de revenir à la liste des gradients
 Nous y avons, déclaré toutes nos variables de state, nos Callbacks et le fetch des données.
 Nous avons aussi rencontré quelques problèmes avec le scope du "FilterContextProvider" et avons donc décidé de le placer directement dans le GradientContext.
 
-Exemple : 
+Exemple :
 
 <GradientContext.Provider
 value={{
@@ -231,7 +230,7 @@ dispatch({ type: "FETCH_SUCCESS", payload: data })
 		})
 	}, [url, isMounted])
 ```
-## Les Bonus
+## Les Bonus :
 
 ```js
 Utilisation du custom hook "isMounted" :
@@ -247,12 +246,15 @@ Exemple : if (isMounted.current) {
 
 <button
 	className="btn btn-outline-dark"
+  arial-label="Click for the first page"
 	disabled={page === 1}
 	onClick={() => setPage(1)}
 >
 				1
 </button>
-Puis dans le fichier GradientList,
+
+Puis dans le fichier GradientList :
+
 {page === 1 &&
 	list.slice(0, 4).map((el) => {
 	const { name, start, end, tags, id = [] } = el
@@ -266,7 +268,6 @@ Puis dans le fichier GradientList,
 	tags={tags}
 	/>
 )
-})}      
+})}
 ```
-
 ![image](https://user-images.githubusercontent.com/53022990/120336838-087a3400-c2f3-11eb-9684-703ee4ed0338.png)
