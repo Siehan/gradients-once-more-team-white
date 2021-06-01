@@ -11,7 +11,6 @@ Repo de départ : Gradient starter
   - GradientsContext pour appeler les données,
   - La structure des routes, 
   - La navigation (Accueil, Précédent, Suivant) depuis routes /gradient/:id 
-  - Bonus
 
 ## GradientReducer : 
 
@@ -98,7 +97,7 @@ Ensuite nous avons mis en place un useEffect, et utilisé le custom hook "isMoun
       })
   }, [url, isMounted])
 
-## Mise en Place des Routes
+## Mise en Place des Routes :
 Tout d'abord, nous avons installé les dépendances react router dom 
 
 yarn add react-router-dom
@@ -106,7 +105,7 @@ yarn add react-router-dom
 Ensuite on les importe dans le fichier index.js : 
     import { BrowserRouter as Router } from 'react-router-dom'
 
-Puis on met en place les différents routes : 
+Puis on met en place les différentes routes : 
     
 
     ReactDOM.render(
@@ -124,14 +123,14 @@ Puis on met en place les différents routes :
         document.getElementById("root")
     )
 
-## FullGradient
+## FullGradient :
 
  
-### FULL Page
+### Full Page
 
-En cliquant sur le bouton "Plein Ecran", l'utilisateur sera redirigé vers une page affichant la couleur sélectionnée. 
+En cliquant sur le bouton "Full Screen", l'utilisateur sera redirigé vers une page affichant la couleur sélectionnée. 
 
-Cette page comporte différentes fonctionnalités. Tout d'abord, il récupère l'identifiant "id" afin de récupérer le bon gradient à afficher. 
+Cette page comporte différentes fonctionnalités. Tout d'abord, elle récupère l'identifiant "id" afin de d’afficher le bon gradient. 
 
     const { gradients } = useGradient()
   const { id } = useParams()
@@ -139,9 +138,9 @@ Cette page comporte différentes fonctionnalités. Tout d'abord, il récupère l
 Nous avons également trois boutons : 
 - "Tous" => qui redirige l'utilisateur vers la liste des gradients.
                 
-- "précèdent" => qui permet d'afficher la couleur précédente. L'identification se fait grâce à l'id. 
+- "Previous" => qui permet d'afficher la couleur précédente. L'identification se fait grâce à l'id. 
 
-- "Suivant" => qui permet d'afficher la couleur suivante. L'identification se fait grâce à l'id. 
+- "Next" => qui permet d'afficher la couleur suivante. L'identification se fait grâce à l'id. 
 
 Ces 3 boutons, sont englobé dans une balise Link :
 
@@ -153,7 +152,7 @@ Ces 3 boutons, sont englobé dans une balise Link :
       Previous
    </NavLink>
 
-### GradientText
+### GradientText :
 
 En plus de ces boutons, l'utilisateur à accès au nom du gradients affichée, ainsi qu'au code linear. 
 
@@ -162,7 +161,7 @@ En plus de ces boutons, l'utilisateur à accès au nom du gradients affichée, a
             gradients[id - 1]?.start
         }, ${gradients[id - 1]?.end})`}</div>
 
-### GradientPageError. 
+### GradientPageError :
 
 Les gradients sont identifiés grâce à l'id. Dans la gradient list, récupérée par l'api, nous avons 25 gradients soit 25 id.
 
@@ -182,11 +181,12 @@ avec un message d'erreur.
 
 L'utilisateur aura toujours la possibilité de revenir à la liste des gradients (page Home), grâce au bouton "Tous".
 
+# Alyra Gradients Team White Project - Context API
+White Team: Nassim ,Sylvie, Victor et Grégory
 ## Mise en place du Gradient Context
 ```js
-Nous y avons, déclarer toute nos variables de state, nos Callbacks et le fetch des données.
-Nous avons aussi rencontrer quelque problèmes avec le scope du "FilterContextProvider" et avons
-donc décidé de le placer directement dans le GradientContext.
+Nous y avons, déclaré toutes nos variables de state, nos Callbacks et le fetch des données.
+Nous avons aussi rencontré quelques problèmes avec le scope du "FilterContextProvider" et avons donc décidé de le placer directement dans le GradientContext.
 
 Exemple : 
 
@@ -208,7 +208,7 @@ setPage,}}
 </GradientContext.Provider>
 ```
 
-## Fetch des données
+## Fetch des données :
 
 ```js
 Les données ont été fetch depuis l'API https://gradients-api.herokuapp.com/gradients
@@ -243,10 +243,10 @@ Exemple : if (isMounted.current) {
 	dispatch({ type: "FETCH_SUCCESS", payload: data })
 	}
 
- Des fonctions Callback pour le loading et la récupération de données:
+ Des fonctions Callback pour le loading et la récupération de données :
  Exemple: 	const initFetch = useCallback(() => dispatch({ type: "FETCH_INIT" }), [])
 
- Mise en place des pages(Ce que nous avons vu en cours):
+ Mise en place de plusieurs pages (Comme nous l’avons vu avons en cours):
  Exemple : dans le fichier "SwitchPage",
 
 <button
@@ -273,4 +273,4 @@ Puis dans le fichier GradientList,
 })}      
 ```
 
-![image](https://user-images.githubusercontent.com/53022990/120334813-40807780-c2f1-11eb-8edf-826187334c23.png)
+![image](https://user-images.githubusercontent.com/53022990/120336533-bafdc700-c2f2-11eb-90ac-4b10cfa97078.png)
