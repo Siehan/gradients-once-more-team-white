@@ -45,7 +45,7 @@ function App() {
 
         <main className="container">
           <ToggleModeButton darkMode={darkMode} setDarkMode={setDarkMode} />
-          <h1 className="text-center my-4 text-white">Alyra Gradients</h1>
+          <h1 className="text-center my-4 text-white">Gradients</h1>
           <Gradients />
           {active && <SwitchPage />}
           {!active && (
