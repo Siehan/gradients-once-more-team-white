@@ -12,7 +12,6 @@ const ToggleModeButton = (props) => {
 					onClick={handleButtonClick}
 					aria-label="Clickez pour afficher le mode sombre"
 					className="btn btn-dark position-absolute"
-					//className="btn btn-dark position-absolute top-20 start-50 translate-middle"
 				>
 					🌒
 				</button>
@@ -21,7 +20,6 @@ const ToggleModeButton = (props) => {
 					onClick={handleButtonClick}
 					aria-label="Clickez pour afficher le mode clair"
 					className="btn btn-light position-absolute"
-					//className="btn btn-light position-absolute top-20 start-50 translate-middle"
 				>
 					🌔
 				</button>
