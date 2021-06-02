@@ -52,7 +52,7 @@ const GradientPageError = () => {
             ""
           )}
         </nav>
-        <p className="text-white m-auto text-center">Oops, this gradient does not exist</p>
+        <p className="error-exist m-auto text-center">Oops, this gradient does not exist</p>
       </div>
       <Footer />
     </div>
