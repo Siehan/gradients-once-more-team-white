@@ -1,3 +1,4 @@
+import "./App.css";
 import React from "react";
 import { useGradient } from "./context/GradientsContext";
 import { useState } from "react";
@@ -9,7 +10,7 @@ import ToggleModeButton from "./components/ToggleModeButton";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
-  const modeClasses = darkMode ? "bg-dark text-white" : "bg-light";
+  const modeClasses = darkMode ? "bg-dark text-white" : "";
   const { gradients, active, setActive } = useGradient();
   const list = gradients;
   const length = list.length;
@@ -31,8 +32,8 @@ function App() {
   };
 
   return (
-    <div className={`min-vh-100 d-flex flex-column ${modeClasses}`}>
-      <div className="min-vh-100 d-flex flex-column" style={style}>
+    <div style={style}>
+      <div className={`min-vh-100 d-flex flex-column ${modeClasses}`}>
         <GradientsHeader
           handleReloadClick={handleReloadClick}
           handleNextClick={handleNextClick}
@@ -42,10 +43,9 @@ function App() {
           <h1 className="display-1">Alyra Gradients</h1>
           <p className="tagline mt-3">Ultime collection des plus beaux dégradés</p>
         </GradientsHeader>
-
         <main className="container">
           <ToggleModeButton darkMode={darkMode} setDarkMode={setDarkMode} />
-          <h1 className="text-center my-4 text-white">Gradients</h1>
+          <h1 className="text-center fs-2 my-4 pb-4 text-white">Gradients</h1>
           <Gradients />
           {active && <SwitchPage />}
           {!active && (
