@@ -18,7 +18,14 @@ code {
   height: 5rem;
 }
 
-/*  Error404Page */
+/* GradientPageError404 */
+
+.error-exist {
+  color: red;
+  font-size: 3rem;
+}
+
+/* Error404Page */
 
 .error-page {
   /* Gris et Noir */
