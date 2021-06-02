@@ -4,7 +4,7 @@ import { useGradient } from "../context/GradientsContext";
 const SwitchPage = () => {
   const { page, setPage } = useGradient();
   return (
-    <div className="btn-group mb-4">
+    <div className="btn-group mb-5">
       <button
         aria-label="Click to show all"
         className="btn btn-outline-light rounded-3 m-1"
