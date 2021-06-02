@@ -31,7 +31,7 @@ export const GradientContextProvider = ({ children }) => {
 			.then((response) => {
 				if (!response.ok) {
 					throw new Error(
-						`Something went wrong with your fetch" : ${response.status}`
+						`Something went wrong with your fetch : ${response.status}`
 					)
 				}
 				return response.json()
