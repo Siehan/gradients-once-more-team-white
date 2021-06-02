@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.css";
+import { NavLink } from "react-router-dom";
 import Footer from "../components/Footer";
 
 export const Error404Page = () => {
@@ -10,10 +11,10 @@ export const Error404Page = () => {
           <h2 className="not-found">404 Not Found</h2>
           <div className="error-details">Sorry, an error has occured, Requested page not found!</div>
           <div class="error-actions">
-            <a href="https://gradients-once-more-team-white.netlify.app/" className="btn btn-danger btn-lg">
+            <NavLink to="/" type="button" aria-label="Click to go back home" className="btn btn-light btn-lg text-dark">
               Take Me Home
-            </a>
-            <a href="https://alyra.fr" className="btn btn-default bg-white btn-lg">
+            </NavLink>
+            <a href="https://alyra.fr" className="btn btn-dark btn-lg text-white">
               Contact Support
             </a>
           </div>
