@@ -5,38 +5,3 @@
   margin: 0;
   padding: 0;
 }
-
-.error-page {
-  /* Gris et Noir */
-  background-image: linear-gradient(300deg, #6e6e6b 10%, #080707 90%);
-
-  /* Vert et Bleu */
-  /*background-image: linear-gradient(120deg, #4faa1b 0%, #3caadd 100%);*/
-}
-
-.oops {
-  text-align: center;
-  font-size: 5rem;
-  color: white;
-  font-family: "Exo", sans-serif;
-}
-
-.not-found {
-  text-align: center;
-  font-size: 4rem;
-  color: red;
-}
-
-.error-template {
-  text-align: center;
-  font-size: 3rem;
-  color: white;
-}
-.error-actions {
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
-.error-actions .btn {
-  margin-right: 10px;
-}
