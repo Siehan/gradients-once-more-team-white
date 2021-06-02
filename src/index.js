@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 import App from "./App";
+import "./index.css";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { GradientContextProvider } from "./context/GradientsContext";
 import GradientPage from "./page/GradientPage";
