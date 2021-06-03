@@ -9,7 +9,7 @@
  Dans ce projet, nous avons ciblé différents objectifs :
 
 - useReducer avec des actions FETCH_INIT, FETCH_SUCCESS, FETCH_FAILURE
-- Les gradients sont récupérés via une API https://gradients-api.herokuapp.com
+- Les gradients sont récupérés via une API <https://gradients-api.herokuapp.com>
 - GradientsContext pour appeler les données,
 - La structure des routes,
 - La navigation (Home, Previous, Next) depuis routes /gradient/:id
@@ -86,27 +86,27 @@ const [page, setPage] = useState(1)
 Puis, avons mis en place un useEffect, et utilisé le custom hook "isMounted" :
 
 ```js
- useEffect(() => {
-	fetch(url)
-		.then((response) => {
-			dispatch({ type: "FETCH_INIT" })
-				if (!response.ok) {
-					throw new Error(
-						`Something went wrong with your fetch" : ${response.status}`
-					)
-				}
-				return response.json()
-			})
-			.then((data) => {
-				if (isMounted.current) {
-					dispatch({ type: "FETCH_SUCCESS", payload: data })
-				}
-			})
-			.catch((error) => {
-				if (isMounted.current) {
-					dispatch({ type: "FETCH_FAILURE", payload: error.message })
-				}
-			})
+useEffect(() => {
+ fetch(url)
+ .then((response) => {
+   dispatch({ type: "FETCH_INIT" })
+    if (!response.ok) {
+     throw new Error(
+      `Something went wrong with your fetch" : ${response.status}`
+     )
+    }
+    return response.json()
+   })
+   .then((data) => {
+    if (isMounted.current) {
+     dispatch({ type: "FETCH_SUCCESS", payload: data })
+    }
+   })
+   .catch((error) => {
+    if (isMounted.current) {
+     dispatch({ type: "FETCH_FAILURE", payload: error.message })
+    }
+   })
 }, [url, isMounted])
 ```
 
@@ -175,13 +175,13 @@ En plus de ces boutons, l'utilisateur accède au nom du gradient, ainsi qu’à 
 
 ```js
 return (
-	<div className="m-auto text-center">
-		<h1 className="text-white display-1">{gradients[id - 1]?.name}</h1>
-		<div className="bg-white shadow p-2 rounded">{`background-image: linear-gradient(to right, ${
-			gradients[id - 1]?.start
-		}, ${gradients[id - 1]?.end})`}</div>
-	</div>
-	)
+<div className="m-auto text-center">
+ <h1 className="text-white display-1">{gradients[id - 1]?.name}</h1>
+ <div className="bg-white shadow p-2 rounded">{`background-image: linear-gradient(to right, ${
+  gradients[id - 1]?.start
+  }, ${gradients[id - 1]?.end})`}</div>
+ </div>
+ )
 }
 ```
 
@@ -229,7 +229,7 @@ setPage,}}
 
 ## Fetch des données
 
-Les données ont été fetch depuis l'API https://gradients-api.herokuapp.com/gradients
+Les données ont été fetch depuis l'API <https://gradients-api.herokuapp.com/gradients>
 
 ```js
 const fetchGradient = useCallback(() => {
