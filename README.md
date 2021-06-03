@@ -1,6 +1,6 @@
 # Projet Alyra Gradient Once More
 
-- Netlify: https://gradients-once-more-team-white.netlify.app/
+- Netlify: `https://gradients-once-more-team-white.netlify.app/`
 - Repo de départ : Gradient starter.
 - Equipe Blanche: Sylvie, Victor, Grégory, Nassim
 
