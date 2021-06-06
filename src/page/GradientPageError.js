@@ -1,17 +1,14 @@
+import "bootstrap/dist/css/bootstrap.css";
 import React from "react";
 import { NavLink, useParams } from "react-router-dom";
 import Footer from "../components/Footer";
 
 const GradientPageError = () => {
   const { id } = useParams();
+
   return (
-    <div className="min-vh-100 d-flex flex-column">
-      <div
-        className="flex-fill d-flex"
-        style={{
-          backgroundColor: "black",
-        }}
-      >
+    <div className="App min-vh-100 d-flex flex-column">
+      <div className="flex-fill d-flex error-bg ">
         <nav className="fixed-top nav">
           <li className="nav-item">
             <NavLink
@@ -52,7 +49,7 @@ const GradientPageError = () => {
             ""
           )}
         </nav>
-        <p className="error-exist m-auto text-center">Oops, this gradient does not exist</p>
+        <p className="error-exit m-auto text-center">Oops, this gradient does not exist</p>
       </div>
       <Footer />
     </div>
