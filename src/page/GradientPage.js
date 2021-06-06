@@ -12,7 +12,7 @@ const GradientPage = () => {
   return (
     <>
       {id < 26 ? (
-        <div className="min-vh-100 d-flex flex-column">
+        <div className="App min-vh-100 d-flex flex-column">
           <div
             className="flex-fill d-flex"
             style={{
